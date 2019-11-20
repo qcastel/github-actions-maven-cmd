@@ -1,7 +1,7 @@
 # action.yml
-name: 'OB release'
+name: 'Mvn cmd'
 author: https://github.com/qcastel
-description: 'Release our java libraries for open banking'
+description: 'Wrap maven command into a docker image'
 branding:
   color: blue
   icon: unlock
