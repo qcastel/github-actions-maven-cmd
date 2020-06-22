@@ -2,7 +2,7 @@
 set -e
 
 echo "JAVA_HOME = $JAVA_HOME"
-JAVA_HOME="/usr/local/openjdk-11/"
+JAVA_HOME="/usr/java/openjdk-14/"
 # Setup maven local repo
 if [[ -n "$MAVEN_LOCAL_REPO_PATH" ]]; then
      MAVEN_REPO_LOCAL="-Dmaven.repo.local=$MAVEN_LOCAL_REPO_PATH"
