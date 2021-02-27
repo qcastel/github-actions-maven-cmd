@@ -24,6 +24,12 @@ inputs:
     required: false
     default: ''
 
+  m2-home-folder:
+    description: 'M2 home folder'
+    required: false
+    default: '/root/.m2'
+
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -36,3 +42,6 @@ runs:
     MAVEN_REPO_SERVER_USERNAME: ${{ inputs.maven-repo-server-username }}
     MAVEN_REPO_SERVER_PASSWORD: ${{ inputs.maven-repo-server-password }}
     MAVEN_ARGS: ${{ inputs.maven-args }}
+    
+    M2_HOME_FOLDER: ${{ inputs.m2-home-folder}}
+
