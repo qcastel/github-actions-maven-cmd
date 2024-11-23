@@ -12,7 +12,7 @@ else
 fi
 
 echo "JAVA_HOME = $JAVA_HOME"
-JAVA_HOME="/usr/java/openjdk-14/"
+JAVA_HOME="/usr/java/openjdk-21/"
 
 # Do the copyright verification
 mvn -ntp $*
