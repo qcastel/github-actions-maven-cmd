@@ -4,7 +4,7 @@ COPY ./mvn-action.sh /usr/local/bin
 COPY ./settings.xml /usr/share/maven/conf
 
 # Installer PostgreSQL et postgresql-client
-RUN apk add --no-cache postgresql postgresql-client
+RUN apk add --no-cache postgresql postgresql-client postgresql-contrib
 
 # Créer le répertoire de données PostgreSQL
 RUN mkdir -p /var/lib/postgresql/data && \
