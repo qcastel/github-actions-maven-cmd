@@ -26,6 +26,11 @@ inputs:
     required: false
     default: '/root/.m2'
 
+  start-postgres:
+    description: 'Start PostgreSQL before running Maven commands'
+    required: false
+    default: 'false'
+
 
 runs:
   using: 'docker'
@@ -40,4 +45,5 @@ runs:
     MAVEN_ARGS: ${{ inputs.maven-args }}
     
     M2_HOME_FOLDER: ${{ inputs.m2-home-folder}}
+    USE_LOCAL_POSTGRES: ${{ inputs.start-postgres }}
 
