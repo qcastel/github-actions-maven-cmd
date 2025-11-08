@@ -7,6 +7,10 @@ pwd
 if command -v pg_ctl &> /dev/null && [ "${USE_LOCAL_POSTGRES:-false}" = "true" ]; then
     echo "Starting PostgreSQL..."
     
+    # Create /run/postgresql directory for Unix socket lock files
+    mkdir -p /run/postgresql
+    chown -R postgres:postgres /run/postgresql
+    
     # Ensure log directory exists and has correct permissions
     mkdir -p /var/lib/postgresql/data
     chown -R postgres:postgres /var/lib/postgresql/data
