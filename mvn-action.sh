@@ -62,7 +62,8 @@ else
 fi
 
 echo "JAVA_HOME = $JAVA_HOME"
-JAVA_HOME="/usr/java/openjdk-21/"
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
+
 
 # Execute Maven command
 mvn -ntp $*
