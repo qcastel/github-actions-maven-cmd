@@ -61,9 +61,22 @@ else
      echo "WARN - No M2 folder '${M2_HOME_FOLDER}' found. We therefore won't beneficy from the CI cache";
 fi
 
-echo "JAVA_HOME = $JAVA_HOME"
-export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
+# Verify JAVA_HOME is set and valid
+if [ -z "$JAVA_HOME" ] || [ ! -d "$JAVA_HOME" ] || [ ! -f "$JAVA_HOME/bin/java" ]; then
+    echo "ERROR: JAVA_HOME is not set or invalid. Attempting to install Java 21..."
+    sudo apt-get update
+    sudo apt-get install -y openjdk-21-jdk
+    export JAVA_HOME="/usr/lib/jvm/java-21-openjdk-amd64"
+    if [ ! -d "$JAVA_HOME" ]; then
+        export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
+    fi
+fi
 
+# Add Java to PATH
+export PATH="$JAVA_HOME/bin:$PATH"
+
+echo "JAVA_HOME = $JAVA_HOME"
+java -version
 
 # Execute Maven command
 mvn -ntp $*
