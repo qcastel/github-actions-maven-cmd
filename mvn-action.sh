@@ -61,6 +61,9 @@ else
      echo "WARN - No M2 folder '${M2_HOME_FOLDER}' found. We therefore won't beneficy from the CI cache";
 fi
 
+echo "JAVA_HOME = $JAVA_HOME"
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
+
 # Execute Maven command
 mvn -ntp $*
 
