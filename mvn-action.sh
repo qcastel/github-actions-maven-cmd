@@ -61,14 +61,6 @@ else
      echo "WARN - No M2 folder '${M2_HOME_FOLDER}' found. We therefore won't beneficy from the CI cache";
 fi
 
-# Verify JAVA_HOME is set and valid
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk/
-# Add Java to PATH
-export PATH="$JAVA_HOME/bin:$PATH"
-
-echo "JAVA_HOME = $JAVA_HOME"
-java -version
-
 # Execute Maven command
 mvn -ntp $*
 
